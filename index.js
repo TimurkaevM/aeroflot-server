@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const config = require('config');
-const corsMiddleware = require('./middlewares/corsMiddleware');
+const corsMiddleware = require('./src/middlewares/corsMiddleware');
 
 const app = express();
 const port = process.env.PORT || config.get('PORT');
@@ -17,7 +17,7 @@ app.use(corsMiddleware);
 
 app.use(morgan('combined'));
 
-app.use('/aeroflot', require('./routes'));
+app.use('/aeroflot', require('./src/routes'));
 
 (async function () {
   try {
